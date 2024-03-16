@@ -19,8 +19,12 @@ interface LoginCredentials {
 }
 
 const register = async (registrationData: LoginCredentials) => {
-  const res = await api.post("/register", registrationData);
-  return res.data;
+  try {
+    const res = await api.post("/register", registrationData);
+    return res.data;
+  } catch (e) {
+    console.log(e);
+  }
 };
 
 export function SignUpForm() {
