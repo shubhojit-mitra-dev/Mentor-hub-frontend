@@ -54,27 +54,43 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="faqs">
+        <section id="faqs" className="w-full">
           <h2 className="text-4xl font-bold mt-12">FAQs</h2>
           <Accordion type="single" collapsible className="w-full">
             <AccordionItem value="item-1">
-              <AccordionTrigger>Is it accessible?</AccordionTrigger>
+              <AccordionTrigger>Is this website free to use?</AccordionTrigger>
               <AccordionContent className="text-left">
-                Yes. It adheres to the WAI-ARIA design pattern.
+              Yes/No (depending on your pricing model)
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="item-2">
-              <AccordionTrigger>Is it styled?</AccordionTrigger>
+              <AccordionTrigger>How do I sign up for an account?</AccordionTrigger>
               <AccordionContent className="text-left">
-                Yes. It comes with default styles that matches the other
-                components&apos; aesthetic.
+              There are easy-to-follow instructions for creating an entrepreneur or mentor profile.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="item-3">
-              <AccordionTrigger>Is it animated?</AccordionTrigger>
+              <AccordionTrigger>Do I need a business idea to get started?</AccordionTrigger>
               <AccordionContent className="text-left">
-                Yes. It&apos;s animated by default, but you can disable it if
-                you prefer.
+              No, the platform can be useful for exploring ideas and getting feedback at any stage
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="item-4">
+              <AccordionTrigger>What kind of mentors can I find on this platform?</AccordionTrigger>
+              <AccordionContent className="text-left">
+              Mentors come from a variety of industries and have experience at different business stages.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="item-5">
+              <AccordionTrigger>Can I search for mentors by specific criteria?</AccordionTrigger>
+              <AccordionContent className="text-left">
+              Yes, you can search by industry, expertise, or keywords.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="item-6">
+              <AccordionTrigger>How do I request a mentor?</AccordionTrigger>
+              <AccordionContent className="text-left">
+              The platform will guide you through the process of sending a request to a mentor.
               </AccordionContent>
             </AccordionItem>
           </Accordion>
