@@ -6,16 +6,20 @@ import { api } from "@/lib/axios";
 import { cn } from "@/lib/utils";
 import { useMutation } from "@tanstack/react-query";
 import { useRouter, useSearchParams } from "next/navigation";
-import React from "react";
+import React, { useState } from "react";
 import { toast } from "sonner";
 
 interface LoginCredentials {
+  firstName: string;
+  lastName: string;
   username: string;
+  email: string;
   password: string;
+  isMentor: boolean;
 }
 
-const login = async ({ username, password }: LoginCredentials) => {
-  const res = await api.post("/login", { username, password });
+const register = async (registrationData: LoginCredentials) => {
+  const res = await api.post("/register", registrationData);
   return res.data;
 };
 
@@ -23,11 +27,22 @@ export function SignUpForm() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const isMentor = searchParams.get("as") === "mentor";
+  const [registrationData, setRegistrationData] = useState({
+    firstName: "",
+    lastName: "",
+    username: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+    isMentor,
+  });
 
   const { mutate, isPending } = useMutation({
-    mutationFn: login,
+    mutationFn: register,
     onSuccess: (data) => {
-      toast(data.message);
+      console.log(data);
+      if (data.message) toast(data.message);
+      else toast(data);
       router.push("/explore");
     },
   });
@@ -42,8 +57,14 @@ export function SignUpForm() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Form submitted");
+
+    if (registrationData.password !== registrationData.confirmPassword) {
+      toast("Passwords do not match");
+    }
+
+    mutate(registrationData);
   };
+
   return (
     <div className="max-w-md w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-white dark:bg-black">
       <h2 className="font-bold text-xl text-neutral-800 dark:text-neutral-200">
@@ -57,31 +78,99 @@ export function SignUpForm() {
         <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 mb-4">
           <LabelInputContainer>
             <Label htmlFor="firstname">First name</Label>
-            <Input id="firstname" placeholder="Tyler" type="text" />
+            <Input
+              id="firstname"
+              placeholder="Tyler"
+              type="text"
+              value={registrationData.firstName}
+              required
+              onChange={(e) =>
+                setRegistrationData((state) => ({
+                  ...state,
+                  firstName: e.target.value,
+                }))
+              }
+            />
           </LabelInputContainer>
           <LabelInputContainer>
             <Label htmlFor="lastname">Last name</Label>
-            <Input id="lastname" placeholder="Durden" type="text" />
+            <Input
+              id="lastname"
+              placeholder="Durden"
+              type="text"
+              value={registrationData.lastName}
+              required
+              onChange={(e) =>
+                setRegistrationData((state) => ({
+                  ...state,
+                  lastName: e.target.value,
+                }))
+              }
+            />
           </LabelInputContainer>
         </div>
         <LabelInputContainer className="mb-4">
           <Label htmlFor="username">Username</Label>
-          <Input id="username" placeholder="tylerdurden" type="text" />
+          <Input
+            id="username"
+            placeholder="tylerdurden"
+            type="text"
+            value={registrationData.username}
+            required
+            onChange={(e) =>
+              setRegistrationData((state) => ({
+                ...state,
+                username: e.target.value,
+              }))
+            }
+          />
         </LabelInputContainer>
         <LabelInputContainer className="mb-4">
           <Label htmlFor="email">Email Address</Label>
-          <Input id="email" placeholder="helloworld@gmail.com" type="email" />
+          <Input
+            id="email"
+            placeholder="helloworld@gmail.com"
+            type="email"
+            value={registrationData.email}
+            required
+            onChange={(e) =>
+              setRegistrationData((state) => ({
+                ...state,
+                email: e.target.value,
+              }))
+            }
+          />
         </LabelInputContainer>
         <LabelInputContainer className="mb-4">
           <Label htmlFor="password">Password</Label>
-          <Input id="password" placeholder="••••••••" type="password" />
+          <Input
+            id="password"
+            placeholder="••••••••"
+            type="password"
+            value={registrationData.password}
+            required
+            onChange={(e) =>
+              setRegistrationData((state) => ({
+                ...state,
+                password: e.target.value,
+              }))
+            }
+          />
         </LabelInputContainer>
         <LabelInputContainer className="mb-8">
-          <Label htmlFor="twitterpassword">Confirm password</Label>
+          <Label htmlFor="confirmPassword">Confirm password</Label>
           <Input
-            id="twitterpassword"
+            id="confirmPassword"
             placeholder="••••••••"
-            type="twitterpassword"
+            type="password"
+            value={registrationData.confirmPassword}
+            required
+            onChange={(e) =>
+              setRegistrationData((state) => ({
+                ...state,
+                confirmPassword: e.target.value,
+              }))
+            }
           />
         </LabelInputContainer>
 
