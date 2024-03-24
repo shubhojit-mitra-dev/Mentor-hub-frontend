@@ -13,15 +13,8 @@ const profiles = [
     },
   },
   {
-    username: "Henna Christine",
-    bio: "Passionate about fostering innovation and empowering aspiring entrepreneurs.",
-    socials: {
-      twitter: "#",
-      linkedin: "#",
-    },
-  },
-  {
-    username: "Sam Aldrin",
+    username: "Pradip C.",
+    img: "https://scontent.cdninstagram.com/v/t51.29350-15/341376277_789559862683654_8760957344498404818_n.webp?stp=dst-jpg_e35&efg=eyJ2ZW5jb2RlX3RhZyI6ImltYWdlX3VybGdlbi4xMDgweDEwODAuc2RyIn0&_nc_ht=scontent.cdninstagram.com&_nc_cat=110&_nc_ohc=hzEA1PbPrJUAX8tNjqg&edm=APs17CUBAAAA&ccb=7-5&ig_cache_key=MzA4MzczMTgyNTc4MDA4NTQxNg%3D%3D.2-ccb7-5&oh=00_AfCGMPEX_3Ssfg9WwjR9lgd-kfXlp4LMBJ26fEYLwiRHGA&oe=66060DFE&_nc_sid=10d13b",
     bio: "Experienced mentor committed to nurturing the next generation of business leaders.",
     socials: {
       twitter: "#",
@@ -29,6 +22,16 @@ const profiles = [
     },
   },
   {
+    img: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    username: "Sam Aldrin",
+    bio: "Passionate about fostering innovation and empowering aspiring entrepreneurs.",
+    socials: {
+      twitter: "#",
+      linkedin: "#",
+    },
+  },
+  {
+    img: "https://media-del1-2.cdn.whatsapp.net/v/t61.24694-24/415726934_689732569690981_4186417300336580036_n.jpg?ccb=11-4&oh=01_AdQuQAOw8R52GmjQIcrp_f9RfLHun7Ocpj06yN6Vo_8FzQ&oe=660D79F6&_nc_sid=e6ed6c&_nc_cat=104",
     username: "Aryan Lal",
     bio: "Strategist helping entrepreneurs turn ideas into thriving businesses.",
     socials: {
@@ -37,6 +40,7 @@ const profiles = [
     },
   },
   {
+    img: "https://images.unsplash.com/photo-1609528904487-b3476d8f8451?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     username: "Abdul Qadri",
     bio: "Championing diversity and inclusion in entrepreneurship while offering valuable guidance.",
     socials: {
@@ -45,7 +49,8 @@ const profiles = [
     },
   },
   {
-    username: "Ken Kripke",
+    img: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    username: "Ben Kripke",
     bio: "Driven mentor focused on unlocking the potential of emerging startups.",
     socials: {
       twitter: "#",
@@ -53,6 +58,7 @@ const profiles = [
     },
   },
   {
+    img: "https://images.unsplash.com/photo-1699137874373-c8c76c4d451f?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     username: "Amanda Laurence",
     bio: "Entrepreneurial expert with a track record of transforming visions into reality.",
     socials: {
@@ -61,6 +67,7 @@ const profiles = [
     },
   },
   {
+    img: "https://images.unsplash.com/photo-1534339480783-6816b68be29c?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     username: "Arun Tiwari",
     bio: "Experienced advisor dedicated to helping entrepreneurs navigate challenges and seize opportunities.",
     socials: {
